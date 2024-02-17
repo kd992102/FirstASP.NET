@@ -1,0 +1,28 @@
+﻿@using Test.Models;
+@{
+    List<Card> cards = ViewBag.cards;
+}
+
+<table class="table">
+    <thread>
+        <tr>
+            <th>名稱</th>
+            <th>年齡</th>
+            <th>備註</th>
+        </tr>
+    </thread>
+    <tbody>
+        @foreach (Card card in cards)
+        {
+            <tr>
+                <th>@card.Char_Name</th>
+                <th>@card.Num_Age</th>
+                <th>@card.Char_Comment</th>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
