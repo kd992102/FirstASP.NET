@@ -1,0 +1,43 @@
+﻿@model Test.Models.Card
+
+@{
+    ViewData["Title"] = "CreateNewData";
+}
+
+<h1>新增資料</h1>
+
+<h4>資料</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="CreateNewData" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Char_Name" class="control-label">名稱</label>
+                <input asp-for="Char_Name" class="form-control" />
+                <span asp-validation-for="Char_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Num_Age" class="control-label">年齡</label>
+                <input asp-for="Num_Age" class="form-control" />
+                <span asp-validation-for="Num_Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Char_Comment" class="control-label">備註</label>
+                <input asp-for="Char_Comment" class="form-control" />
+                <span asp-validation-for="Char_Comment" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="新增" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">回到首頁</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

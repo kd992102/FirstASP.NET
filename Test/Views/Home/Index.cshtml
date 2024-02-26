@@ -1,4 +1,5 @@
 ﻿@using Test.Models;
+@model Test.Models.Card
 @{
     List<Card> cards = ViewBag.cards;
 }
@@ -22,6 +23,15 @@
         }
     </tbody>
 </table>
+<a class="btn btn-primary" role="button" asp-controller="Home" asp-action="CreateNewData">
+    新增一筆資料
+</a>
+
+<script>
+    function myFunction() {
+        document.getElementById("demo").innerHTML = "Hello World";
+    }
+</script>
 
 @{
     ViewData["Title"] = "Home Page";

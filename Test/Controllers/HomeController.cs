@@ -1,7 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Diagnostics;
+using System.Reflection.Emit;
 using Test.Models;
-using Test.Views;
 
 namespace Test.Controllers
 {
@@ -25,6 +26,25 @@ namespace Test.Controllers
         public IActionResult Privacy()
         {
             return View();
+        }
+        public IActionResult CreateNewData()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateNewData(Card card)
+        {
+            DatabaseManager dbmanager = new DatabaseManager();
+            try
+            {
+                dbmanager.NewData(card);
+            }
+            catch
+            {
+                Console.WriteLine(double.E.ToString());
+            }
+            return RedirectToAction("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
